@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.11",
+    "@mui/material": "^5.11.12",
+    "@vitejs/plugin-react": "^4.3.4",
+    "react-markdown": "^8.0.5",
+    "vite": "^6.1.1"
+  }
+}

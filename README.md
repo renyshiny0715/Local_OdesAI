@@ -1,79 +1,96 @@
-# Local RAG System with AnythingLLM and Ollama
+# Local OdesAI
 
-This repository contains a local Retrieval-Augmented Generation (RAG) system that uses AnythingLLM for document processing and Ollama for running the Mistral language model.
+A comprehensive Legal AI system with RAG (Retrieval-Augmented Generation) capabilities and multiple UI components.
 
-## Architecture
+## Project Overview
 
-The system consists of three main layers:
+This project integrates various components to create a powerful Legal AI system:
 
-1. **Language Model Layer (Bottom)**
-   - Mistral model running locally
-   - Managed by Ollama
+- **RAG Backend**: Python-based backend for document retrieval and question answering
+- **Main Backend**: Serves as a proxy and coordinator between different components
+- **Ollama WebUI**: Custom web interface for interacting with Ollama LLM models
+- **RAG Test UI**: Interface for testing and using the RAG capabilities
+- **AnythingLLM**: Document management and vector database integration
 
-2. **Model Service Layer (Middle)**
-   - Ollama server
-   - Handles model inference and API requests
+## System Architecture
 
-3. **RAG Service Layer (Top)**
-   - AnythingLLM
-   - Processes documents and manages knowledge base
-   - Integrates with Ollama for enhanced responses
+The system consists of several interconnected components:
 
-## Prerequisites
+- **Backend Services**:
+  - Main Backend (Port 8080): Coordinates between UI and other services
+  - RAG Backend (Port 8082): Handles document retrieval and RAG operations
+  - Ollama API (Port 11434): Local LLM service
 
-1. [Docker Desktop](https://www.docker.com/products/docker-desktop)
-2. [Ollama](https://ollama.ai/download)
-3. At least 8GB RAM
-4. 20GB free disk space
+- **Frontend Applications**:
+  - Ollama WebUI (Port 8081): Custom interface for Ollama
+  - RAG Test UI (Port 3000): Interface for testing RAG capabilities
+  - AnythingLLM (Port 3001): Document management interface
+  - OdesAI RAG Dashboard (Port 8501): Streamlit dashboard for RAG visualization
 
-## Setup
+## Setup Instructions
 
-1. Install Docker Desktop and Ollama
-2. Run `setup_anythingllm.bat` to set up AnythingLLM
-3. Place your documents in the `knowledge` directory
-4. Run `start_rag_system.bat` to start the entire system
+### Prerequisites
+
+- Windows 10/11
+- Node.js and npm
+- Python 3.9+
+- Docker
+- Ollama
+- ngrok (for remote access)
+
+### Installation
+
+1. Clone this repository:
+   ```
+   git clone https://github.com/renyshiny0715/Local_OdesAI.git
+   cd Local_OdesAI
+   ```
+
+2. Set up Python environment:
+   ```
+   python -m venv venv
+   venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
+
+3. Install Node.js dependencies:
+   ```
+   cd ollama-webui
+   npm install
+   cd ../rag-test-ui
+   npm install
+   ```
+
+4. Start the services:
+   ```
+   .\start_all_servers!!!.bat
+   ```
+
+### Remote Access
+
+To access the Ollama WebUI remotely:
+
+1. Start ngrok:
+   ```
+   .\start_ngrok.ps1
+   ```
+
+2. Access the provided ngrok URL from any device.
 
 ## Usage
 
-1. Access AnythingLLM at http://localhost:3001
-2. Upload documents through the web interface
-3. Start chatting with AI that has access to your knowledge base
+- **RAG Test UI**: http://localhost:3000
+- **AnythingLLM**: http://localhost:3001
+- **Main Backend**: http://localhost:8080
+- **Ollama Web UI**: http://localhost:8081
+- **RAG Backend**: http://localhost:8082
+- **Ollama API**: http://localhost:11434
+- **OdesAI RAG Dashboard**: http://localhost:8501
 
-## Directory Structure
+## License
 
-```
-.
-├── anythingllm/          # AnythingLLM container and config
-│   ├── storage/          # Document storage
-│   ├── start.bat         # Start AnythingLLM
-│   └── stop.bat          # Stop AnythingLLM
-├── knowledge/            # Your private documents
-├── setup_anythingllm.bat # Setup script
-└── start_rag_system.bat  # Master startup script
-```
+[Specify your license here]
 
-## Stopping the System
+## Acknowledgements
 
-1. Run `stop.bat` in the anythingllm directory
-2. Close Ollama if needed
-
-## Troubleshooting
-
-1. If AnythingLLM fails to start:
-   - Check Docker is running
-   - Ensure ports 3001 and 11434 are free
-
-2. If document processing fails:
-   - Check file permissions
-   - Ensure documents are in supported formats
-
-3. If Ollama connection fails:
-   - Verify Ollama is running
-   - Check if Mistral model is pulled
-
-## Security Notes
-
-- This system runs entirely locally
-- No data is sent to external services
-- Documents remain in your private storage
-- Access is restricted to localhost by default 
+[Any acknowledgements or credits] 

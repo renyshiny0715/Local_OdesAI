@@ -1,0 +1,10 @@
+version: "2"
+authtoken: ${NGROK_AUTHTOKEN}
+web_addr: "localhost:4040"
+tunnels:
+  ollama-webui:
+    addr: 8081
+    proto: http
+    inspect: false
+    allow_user_agent: true
+    allow_cidr: "0.0.0.0/0" 

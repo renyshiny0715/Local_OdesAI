@@ -1,0 +1,10 @@
+version: "2"
+web_addr: "localhost:4040"
+tunnels:
+  ollama-webui:
+    addr: 8081
+    proto: http
+    inspect: false
+    allow_user_agent: true
+    allow_cidr: "0.0.0.0/0"
+    domain: "a244-81-152-149-66.ngrok-free.app" 

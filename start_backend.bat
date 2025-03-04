@@ -1,0 +1,13 @@
+@echo off
+echo Creating virtual environment...
+"C:\Users\yuren\AppData\Local\Programs\Python\Python311\python.exe" -m venv venv
+
+echo Activating virtual environment...
+call venv\Scripts\activate.bat
+
+echo Installing dependencies...
+pip install -r requirements.txt
+
+echo Starting backend server...
+cd backend
+python main.py 

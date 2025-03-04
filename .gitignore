@@ -34,8 +34,9 @@ models/
 
 # Database files (optional - you might want to include these)
 # Uncomment if you don't want to track database files
-# db/
-# vector-cache/
+db/
+vector-cache/
+vectorcache/
 
 # Environment variables
 .env
@@ -48,9 +49,9 @@ models/
 logs/
 *.log
 
-# Backup directories (optional - you might want to include these)
-# Uncomment if you don't want to track backups
-# backup_v*/
+# Backup directories and unused files
+backup_v*/
+Bin/
 
 # OS specific files
 .DS_Store
@@ -61,4 +62,11 @@ desktop.ini
 .idea/
 .vscode/
 *.swp
-*.swo 
+*.swo
+
+# Additional directories to exclude
+hotdir/
+settings/
+database/
+docstore/
+storage/ 
